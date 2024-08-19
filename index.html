@@ -54,7 +54,7 @@
             Your starter courses should both be in the <b>same pathway</b>, but your third lower level course can be in any pathway. Starter courses are light blue in color.
         </div>
 
-        <div style = "display: grid; grid-template-columns: max-content 1fr;">
+        <div class = "filter-div">
             <img src="Graphics/filter.png" alt="Sort and Filter" class = "filter-img"></img>
             <div id = "lowerGrid-filter">
                 <div class = "filter">                    
@@ -104,8 +104,8 @@
             Students are required to take at least three upper level courses. At least two of these courses should be within your chosen pathway.
         </div>
         
-        <div style = "display: grid; grid-template-columns: max-content 1fr;">
-            <img src="Graphics/filter.png" alt="Sort and Filter" style="margin: 10px; float: left;"></img>
+        <div class = "filter-div">
+            <img src="Graphics/filter.png" alt="Sort and Filter" class = "filter-img"></img>
             <div id = "upperGrid-filter">
                 <div class = "filter">
                     <div style = "white-space: nowrap;">
@@ -151,8 +151,8 @@
             Three elective courses are required to obtain your minimum total of ten courses.
         </div>
 
-        <div style = "display: grid; grid-template-columns: max-content 1fr;">
-            <img src="Graphics/filter.png" alt="Sort and Filter"></img>
+        <div class = "filter-div">
+            <img src="Graphics/filter.png" alt="Sort and Filter" class = 'filter-img'></img>
             <div id = "elecGrid-filter">
                 <div class = "filter">
                     <div style = "white-space: nowrap;">
@@ -281,6 +281,37 @@
         this.classList.add('clicked');
     }
 
+    window.matchMedia('(max-width: 600px)').addEventListener('change', handleMobileChecklist);
+
+    function handleMobileChecklist(e) {
+        const element = document.getElementById('course-aside');
+  
+        if (e.matches) {
+            window.addEventListener('scroll', handleScroll)
+        }
+        else{
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }
+
+    function handleScroll() {
+        const element = document.getElementById('course-aside');
+
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const nearBottom = document.body.offsetHeight - 100;
+
+        if (scrollPosition >= nearBottom) {
+            element.style.bottom = 'auto';
+            element.style.top = '0px';
+        } else {
+            element.style.bottom = '0px';
+            element.style.top = 'auto';
+        }
+    }
+
+    const mediaQuery = window.matchMedia('(max-width: 600px)');
+    handleMobileChecklist(mediaQuery);
+
     //load all courses into array before anything else
     document.addEventListener('DOMContentLoaded', () => {
         parseCSV(() => {
@@ -300,10 +331,8 @@
         }
         if(sessionStorage.getItem('new-media') !== null){
             newMediaChosen = sessionStorage.getItem('new-media') === 'true';
-            console.log(newMediaChosen);
             if (selectedPathway == "mapc"){
                 document.getElementById('new-media').style.display = 'block';
-                console.log(newMediaChosen);
                 if(newMediaChosen){
                     document.getElementById('new-media-check').checked = true;
                 }
@@ -366,7 +395,6 @@
 
     function loadGrids(){
         //Depending on the current pathway load courses of that pathway into the grids, place all courses in electives grid
-        console.log(newMediaChosen);
         document.getElementById('lowerGrid').innerHTML = '';
         document.getElementById('upperGrid').innerHTML = '';
         document.getElementById('elecGrid').innerHTML = '';
@@ -500,7 +528,6 @@
     function updateChecks(){
         //determines the progress in each requirement beneath the checklist based on courses in degreePlan
 
-        console.log("updating checks");
         //get all checkbox elements
         const checkbox100 = document.getElementById("checkbox100");
         const checkboxStarter = document.getElementById('checkboxStarter');

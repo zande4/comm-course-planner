@@ -44,7 +44,7 @@ p, span {
     grid-template-columns: 75% 25%;
 }
 
-aside {
+#course-aside {
     width: 25%;
     height: 100vh;
     padding: 20px;
@@ -56,7 +56,7 @@ aside {
     box-sizing: border-box;
 }
 
-aside p{
+#course-aside p{
     line-height: 1;
 }
 
@@ -254,6 +254,11 @@ aside p{
     margin: 10px;
 }
 
+.filter-div {
+    display: grid; 
+    grid-template-columns: max-content 1fr;
+}
+
 .progress-bar {
     display: block; 
     border-style: solid; 
@@ -339,7 +344,7 @@ h3.raa {
         display: block;
     }
 
-    aside {
+    #course-aside {
         width: 100vw;
         height: 25vh;
         padding: 20px;
@@ -350,7 +355,7 @@ h3.raa {
         top: auto;
         box-sizing: border-box;
         overflow-y: auto;
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .checklist {
@@ -411,17 +416,24 @@ h3.raa {
 
     #course-plan {
         display: grid; 
-        grid-template-columns: auto auto;
-        gap: 5px;
+        grid-template-columns: repeat(auto-fit, 35vw);
+        gap: 10px;
+        justify-content: center; 
+        align-content: start;
         background-color: #A19F9F; 
         padding: 15px;
     }
 
     .filter {
         display: grid;
-        grid-template-columns: 100vw;
+        grid-template-columns: 90vw;
         gap: 5px;
         column-gap: 20px;
         margin: 10px;
+    }
+
+    .filter-div {
+        width: 90%;
+        margin: auto;
     }
 }
