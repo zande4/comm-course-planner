@@ -4,7 +4,7 @@ const C100 = new Course("100", "Communication and Social Process", false, false,
 let courseArray = [];
 
   function parseCSV(callback) {
-    Papa.parse("/courses.csv", {
+    Papa.parse("courses.csv", {
       download: true,
       header: true,
       dynamicTyping: true,
