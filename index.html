@@ -1,29 +1,4 @@
 <!DOCTYPE html>
-<!--
-TOP Priority:
-Make the page responsive to mobile devices (no hover content).
-Address New Media
-
-TO DO: 
-Expanding menus
-Add prereq information
-ideas in action symbol
- Add a warning for exceeding 45 hours (and other relevant warnings e.g. starters must be in the same pathway)
- Are some courses considered equivalent such as fy and regular?
- Create a separate page for New Media?
- - required: COMM 100, COMM 140, COMM 150, COMP 110
- - pick 3: COMM upper list
- - pick 2: COMP/INLS list
- - any lower level course
- How much choice is involved? any low level, select uppers, select nonCOMM, 
- Concerns: don't want to imply that students shouldnt take the other upper level courses, but also why would they?
- Preserve flow: 
- Required > One low > Three comm > two nonCOMM
- Why is 396 not in OCW?
- Weird honors courses?
- courses aren't properly readded to elecGrid
- Can't take two first year seminars
- -->
 
 <html lang="en">
 <head> 
@@ -80,7 +55,7 @@ ideas in action symbol
         </div>
 
         <div style = "display: grid; grid-template-columns: max-content 1fr;">
-            <img src="/Graphics/filter.png" alt="Sort and Filter" style="margin: 10px; float: left;"></img>
+            <img src="Graphics/filter.png" alt="Sort and Filter" class = "filter-img"></img>
             <div id = "lowerGrid-filter">
                 <div class = "filter">                    
                     <div style = "white-space: nowrap;">
@@ -130,7 +105,7 @@ ideas in action symbol
         </div>
         
         <div style = "display: grid; grid-template-columns: max-content 1fr;">
-            <img src="/Graphics/filter.png" alt="Sort and Filter" style="margin: 10px; float: left;"></img>
+            <img src="Graphics/filter.png" alt="Sort and Filter" style="margin: 10px; float: left;"></img>
             <div id = "upperGrid-filter">
                 <div class = "filter">
                     <div style = "white-space: nowrap;">
@@ -177,7 +152,7 @@ ideas in action symbol
         </div>
 
         <div style = "display: grid; grid-template-columns: max-content 1fr;">
-            <img src="/Graphics/filter.png" alt="Sort and Filter"></img>
+            <img src="Graphics/filter.png" alt="Sort and Filter"></img>
             <div id = "elecGrid-filter">
                 <div class = "filter">
                     <div style = "white-space: nowrap;">
@@ -1012,7 +987,7 @@ ideas in action symbol
                 pathDiv.innerHTML += "<div class='dot raa'></div>";
             }
             if(this.ideas !== "NA"){
-                pathDiv.innerHTML += `<img src="/Graphics/ideas-img-color.svg" alt="Ideas in Action" width="20" height="20"></img>`;
+                pathDiv.innerHTML += `<img src="Graphics/ideas-img-color.svg" alt="Ideas in Action" class = "ideas"></img>`;
             }
 
             elem.appendChild(nameDiv);
